@@ -1,25 +1,21 @@
+import os
 from os import system
-
-# Check the requirements
-
-try:
-    import socket
-    from colorama import Fore
-    import time
-    import random
-    from tqdm import tqdm
-except ImportError:
-   system("pip install socket")
-   system("pip install os ")
-   system("pip install colorama ")
-   system("pip install time")
-   system("pip install random")
-   system("pip install tqdm")
-   exit("\n\nRun script Again")
+import socket
+from colorama import Fore
+import time
+import random
+from tqdm import tqdm
+import platform 
 
 # Start APP
+def clear():
+   result = platform.uname()[0]
+   if result == "Windows":
+      system("cls")
+   elif result == "Linux":
+      system("clear")
+clear()
 
-os.system("cls")
 print(Fore.RED+ """
 oooooo   oooooo     oooo oooo                        o8o           
  `888.    `888.     .8'  `888                        `"'           
