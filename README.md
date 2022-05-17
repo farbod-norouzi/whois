@@ -1,6 +1,9 @@
 # whois
 Get site domain information from who.is in the shortest time using Python!
 
+# Attention
+* Note that be sure to install libraries from the "Required plugins" section so that you do not have any problems running the program! *
+
 # Plugins required
 - pip install python
 - pip install socket
