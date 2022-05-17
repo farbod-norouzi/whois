@@ -1,9 +1,10 @@
+from os import system
+
 # Check the requirements
 
 try:
     import socket
-    import os
-    from os import system
+    
     from colorama import Fore
     import time
     import random
