@@ -4,7 +4,6 @@ from os import system
 
 try:
     import socket
-    
     from colorama import Fore
     import time
     import random
