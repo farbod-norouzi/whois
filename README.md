@@ -1,5 +1,5 @@
 # whois
-Get site domain information from who.is in the shortest time using Python!
+Get site domain information from who.is in the shortest time using Python
 
 # Plugins required
 - pip install python
