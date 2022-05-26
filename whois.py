@@ -1,13 +1,26 @@
+# Start (Import libraries)
+
 import os
 from os import system
 import socket
-from colorama import Fore
 import time
-import random
-from tqdm import tqdm
 import platform 
+import sys
+try:
+    from colorama import Fore
+    import random
+    from tqdm import tqdm
+except:
+    print("Installing prerequisites")
+    system("pip install random")
+    system("pip install tqdm")
+    system("pip install colorama")
+    exit('\n',"Run script Again")
 
-# Start APP
+# Start (Import libraries)
+
+# Start (Banner & Clearing)
+
 def clear():
    result = platform.uname()[0]
    if result == "Windows":
@@ -27,11 +40,24 @@ oooooo   oooooo     oooo oooo                        o8o
                                                                    
                                                                    
                                                                    """+Fore.RESET)
-domain = input(Fore.CYAN+"Domain : "+Fore.GREEN).lower()
+                                                                
+# Start (Banner & Clearing)
 
+# Start (APP & Get Input From User)
+
+try:
+    domain = input(Fore.CYAN+"Domain : "+Fore.GREEN).lower()
+except:
+    print(Fore.RED+ "You canceled the program!"+Fore.RESET)
+    sys.exit()
+   
 domain = domain.replace("http://","")
 domain = domain.replace("https://","")
 domain = domain.replace("www.","")
+
+# Start (APP & Get Input From User)
+
+# Start (Search For URL On who.is Site)
 
 if domain[-3:] == "org" or domain[-3:] == "com" or domain[-3:] == "net":
     whois_server = "whois.internic.net"
@@ -45,6 +71,9 @@ s.connect((whois_server,43))
 s.send((domain+"\r\n").encode())
 
 msg = s.recv(10000)
+
+# Start (Progress bar)
+
 print(Fore.YELLOW+"Please Wait...")
 time.sleep(2)
 
@@ -68,5 +97,10 @@ for i in tqdm(range(10)):
     
     pass
 time.sleep(6)
+
+# End (Progress bar)
+
 print('\n',Fore.LIGHTMAGENTA_EX+"Result:",'\n')
 print(Fore.RESET+msg.decode())
+
+# End (Search For URL On who.is Site)
